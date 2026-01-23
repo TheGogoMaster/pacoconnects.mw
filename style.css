@@ -7,43 +7,39 @@
 
 /* Theme Variables */
 :root {
-    /* Dark Theme (Default) - Black/Red/Gold */
-    --primary-dark: #0a0a0a;
-    --secondary-dark: #1a1a1a;
-    --accent-red: #ff2a2a;
-    --accent-gold: #ffd700;
-    --text-light: #ffffff;
-    --text-gray: #b3b3b3;
-    --card-bg: #222222;
-    --border-color: #333333;
-    --hero-bg: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(26, 26, 26, 0.95));
+    --primary-dark: #1a1a1a;
+    --secondary-dark: #252525;
+    --accent-red: #e63946;
+    --accent-gold: #ffd166;
+    --text-light: #f8f9fa;
+    --text-gray: #adb5bd;
+    --card-bg: #2d2d2d;
+    --border-color: #404040;
+    --hero-bg: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(37, 37, 37, 0.95));
 }
 
 [data-theme="light"] {
-    /* Light Theme - Warm Professional */
-    --primary-dark: #f8f9fa;
+    --primary-dark: #f1f3f5;
     --secondary-dark: #e9ecef;
-    --accent-red: #e63946;
-    --accent-gold: #e9c46a;
-    --text-light: #2b2d42;
+    --accent-red: #d90429;
+    --accent-gold: #ffaa00;
+    --text-light: #212529;
     --text-gray: #6c757d;
     --card-bg: #ffffff;
     --border-color: #dee2e6;
-    --hero-bg: linear-gradient(135deg, rgba(248, 249, 250, 0.97), rgba(233, 236, 239, 0.97));
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    --hero-bg: linear-gradient(135deg, rgba(241, 243, 245, 0.97), rgba(233, 236, 239, 0.97));
 }
 
 [data-theme="colorful"] {
-    /* Colorful Theme */
-    --primary-dark: #0d1b2a;
-    --secondary-dark: #1b263b;
-    --accent-red: #ff006e;
-    --accent-gold: #ffd60a;
-    --text-light: #ffffff;
-    --text-gray: #b8c0ff;
-    --card-bg: #415a77;
-    --border-color: #778da9;
-    --hero-bg: linear-gradient(135deg, rgba(13, 27, 42, 0.9), rgba(27, 38, 59, 0.9));
+    --primary-dark: #1d3557;
+    --secondary-dark: #457b9d;
+    --accent-red: #e63946;
+    --accent-gold: #ffb703;
+    --text-light: #f1faee;
+    --text-gray: #a8dadc;
+    --card-bg: #2a5265;
+    --border-color: #4a7c8c;
+    --hero-bg: linear-gradient(135deg, rgba(29, 53, 87, 0.9), rgba(69, 123, 157, 0.9));
 }
 
 /* Add warm elements to light theme */
@@ -2422,6 +2418,28 @@ section {
     .admin-section .form-row {
         grid-template-columns: 1fr;
     }
+}
+
+.btn-google {
+    background: #4285F4;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    width: 100%;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 1rem;
+}
+
+.btn-google:hover {
+    background: #357ae8;
+    transform: translateY(-2px);
 }
 
 /* ==================== FIXED: BUTTON TEXT STYLING ==================== */
