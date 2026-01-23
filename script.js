@@ -43,7 +43,13 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+try {
+    firebase.initializeApp(firebaseConfig);
+    console.log("Firebase initialized successfully");
+} catch (error) {
+    console.log("Firebase init error:", error);
+}
+
 const database = firebase.database();
 const beatsRef = database.ref('beats');
 const mixesRef = database.ref('mixes');
