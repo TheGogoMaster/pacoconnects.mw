@@ -30,26 +30,6 @@
     document.body.addEventListener('click', unlockAudio, { once: true });
 })();
 
-// FIREBASE CONFIGURATION
-const firebaseConfig = {
-    apiKey: "AIzaSyD2tQzsNMtLOciLMokNofyCW93C06Qoj_k",
-    authDomain: "trek-media-studios.firebaseapp.com",
-    databaseURL: "https://trek-media-studios-default-rtdb.firebaseio.com",
-    projectId: "trek-media-studios",
-    storageBucket: "trek-media-studios.firebasestorage.app",
-    messagingSenderId: "449193157475",
-    appId: "1:449193157475:web:f9166ea800e4357d432956",
-    measurementId: "G-D2J7HJ8REE"
-};
-
-// Initialize Firebase
-try {
-    firebase.initializeApp(firebaseConfig);
-    console.log("Firebase initialized successfully");
-} catch (error) {
-    console.log("Firebase init error:", error);
-}
-
 const database = firebase.database();
 const beatsRef = database.ref('beats');
 const mixesRef = database.ref('mixes');
