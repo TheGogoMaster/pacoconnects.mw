@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>PACO Connects | Malawi's Beat Licensing Marketplace | COSOMA Aligned</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Top Navigation Bar -->
+    <header class="top-nav">
+      <div class="logo-area">
+        <img src="https://i.postimg.cc/4mCJkDk8/PACO-connects.png" alt="PACO Connects Logo" class="logo-img">
+      </div>
+      <div class="search-area">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search beats, genres, bpm..." id="searchInput">
+      </div>
+      <nav class="nav-links">
+        <button class="nav-link active" data-page="beats">Beats</button>
+        <button class="nav-link" data-page="services">Services</button>
+        <button class="nav-link" data-page="howitworks">How it works</button>
+        <button class="nav-link" data-page="contact">Contact us</button>
+        <button class="nav-link" data-page="customorder">Custom order</button>
+        
+        <!-- Profile Dropdown -->
+        <div class="profile-dropdown" id="profileDropdown">
+          <button class="profile-btn" id="profileBtn">
+            <span id="profileName">Sign In</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <div class="dropdown-header">
+              <span class="dropdown-label">YOUR PROFILE:</span>
+              <span class="dropdown-name" id="dropdownUserName">Tiyamike Thyolani</span>
+            </div>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" data-nav="logout">
+              <i class="fas fa-sign-out-alt"></i> LOG OUT
+            </button>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" data-nav="dashboard">
+              <i class="fas fa-chart-line"></i> Dashboard
+            </button>
+            <button class="dropdown-item" data-nav="mybeats">
+              <i class="fas fa-music"></i> My beats
+            </button>
+            <button class="dropdown-item" data-nav="purchases">
+              <i class="fas fa-shopping-cart"></i> My purchases
+            </button>
+            <button class="dropdown-item" data-nav="wishlist">
+              <i class="fas fa-heart"></i> Wishlist
+            </button>
+            <button class="dropdown-item" data-nav="support">
+              <i class="fas fa-headset"></i> Support
+            </button>
+            <button class="dropdown-item" data-nav="account">
+              <i class="fas fa-user-cog"></i> Account
+            </button>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" data-nav="dashboard">
+              <i class="fas fa-arrow-right"></i> Go to dashboard
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Content Container -->
+    <div id="pageContent" class="page-content">
+      
+      <!-- BEATS PAGE (Home) -->
+      <div id="beatsPage" class="page active">
+        <div class="hero-badge">
+          <i class="fas fa-copyright"></i> COSOMA Aligned | 70% Producer / 20% PACO / 10% COSOMA
+        </div>
+        
+        <!-- CATEGORY ROW -->
+        <div class="filter-row">
+          <div class="filter-group">
+            <span class="filter-label">CATEGORY</span>
+            <div class="filter-buttons">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="new">New</button>
+              <button class="filter-btn" data-filter="super-sale">Super Sale</button>
+              <button class="filter-btn" data-filter="premium">Premium</button>
+            </div>
+          </div>
+          
+          <div class="filter-group">
+            <span class="filter-label">SORT & FILTER</span>
+            <div class="filter-options">
+              <button class="filter-opt">Newest</button>
+              <button class="filter-opt">Moods</button>
+              <button class="filter-opt">Keys</button>
+              <button class="filter-opt">Sample type</button>
+              <button class="filter-opt">Vocal type</button>
+              <label class="filter-checkbox" for="hideSold">
+                <input type="checkbox" id="hideSold"> Hide sold
+              </label>
+            </div>
+          </div>
+        </div>
+        
+        <!-- ALL GENRES ROW -->
+        <div class="genres-row">
+          <span class="filter-label">All genres</span>
+          <div class="genre-list" id="genreList">
+            <button class="genre-btn">Afro Beat</button>
+            <button class="genre-btn">Amapiano</button>
+            <button class="genre-btn">Trap</button>
+            <button class="genre-btn">Club/Dance</button>
+            <button class="genre-btn">R&B</button>
+            <button class="genre-btn">Hip Hop</button>
+            <button class="genre-btn">House</button>
+            <button class="genre-btn">Lo-Fi</button>
+            <button class="genre-btn">Pop</button>
+            <button class="genre-btn">Dancehall</button>
+            <button class="genre-btn">Drill</button>
+            <button class="genre-btn">Electronic</button>
+            <button class="genre-btn">Latin</button>
+            <button class="genre-btn">Orchestral</button>
+            <button class="genre-btn">Phonk</button>
+            <button class="genre-btn">Rock</button>
+            <button class="genre-btn">UK Garage</button>
+          </div>
+          <button class="reset-btn" id="resetFilters">RESET</button>
+        </div>
+        
+        <div class="beat-count" id="beatCount">Showing 6 beats</div>
+        <div class="beat-grid" id="beatGrid"></div>
+      </div>
+
+      <!-- SERVICES PAGE -->
+      <div id="servicesPage" class="page">
+        <h2 class="page-title">Have it your way.</h2>
+        <div class="services-grid">
+          <div class="service-card" data-service="original">
+            <h3>Original beat</h3>
+            <div class="service-price">MK 150,000</div>
+            <p>Looking for a beatmaker? Beathunterz helps you create your new beat exactly the way you want it. Hire the best beatmakers with years of experience to collaborate on an original and exclusive beat, made from scratch!</p>
+            <button class="order-now-btn" data-service="original">Order Now</button>
+          </div>
+          <div class="service-card" data-service="mastering">
+            <h3>Mastering</h3>
+            <div class="service-price">MK 50,000</div>
+            <p>Already mixed? Let our sound engineers use their years of experience and top-of-the-range studio equipment to add some final shine to your tune, including maximizing the loudness without sacrificing any quality.</p>
+            <button class="order-now-btn" data-service="mastering">Order Now</button>
+          </div>
+          <div class="service-card" data-service="mixmaster">
+            <h3>Mix and master</h3>
+            <div class="service-price">MK 100,000</div>
+            <p>Also known as "stems mix and master," this is the ultimate service for your tune. We polish each track while retaining your signature style. After making sure all the stems are mixed together perfectly, we add the finishing touches to the song as a whole.</p>
+            <button class="order-now-btn" data-service="mixmaster">Order Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOW IT WORKS PAGE -->
+      <div id="howitworksPage" class="page">
+        <h2 class="page-title">How it works</h2>
+        <div class="tabs-container">
+          <div class="tabs-header">
+            <button class="tab-btn active" data-tab="registration">Registration</button>
+            <button class="tab-btn" data-tab="music">Music Requirement</button>
+            <button class="tab-btn" data-tab="package">Package Requirement</button>
+            <button class="tab-btn" data-tab="samples">Use of Samples</button>
+            <button class="tab-btn" data-tab="sales">Sales</button>
+          </div>
+          <div class="tabs-content">
+            <div id="tab-registration" class="tab-pane active">
+              <h3>Registration</h3>
+              <p>PACO Connects is home to some of the highest quality commercial music content around. It's also safe. Our diligent background checks help maintain our trusted status.</p>
+              <h4>Identification</h4>
+              <p>To get verified on our platform, every seller has to provide social media links and a government-issued photo ID. This information is encrypted, securely stored, and governed by our privacy policy.</p>
+              <p>At this stage, it's also good for a beatmaker to provide us with Facebook, Soundcloud, Instagram, and Spotify links, so we can better understand their production style.</p>
+              <p>We value producers with a significant release history and some commercial success. However, if you don't have any of that, it doesn't mean you will be rejected. Our main selection criteria are full transparency about the beatmaker's professional background and, of course, top quality beats.</p>
+              <h4>Approval</h4>
+              <p>Once you've submitted an application, your user status changes to Pending. What follows is the review process, which takes up to 3 days, after which we will notify you via email to let you know whether we have approved or declined your application.</p>
+              <p>We do not work with managers, agents, or agencies. We only work directly with beatmakers.</p>
+            </div>
+            <div id="tab-music" class="tab-pane">
+              <h3>Music Requirement</h3>
+              <p>Before submitting, please make sure that you do not violate these rules.</p>
+              <h4>It's your beat</h4>
+              <p>You produced this beat by yourself, and you own 100% of the rights. It doesn't belong to anyone else, it's not a collaboration beat, and you're not uploading it on anyone else's behalf.</p>
+              <p>The beat must be well produced, professionally mixed and mastered, and feature creative sound design.</p>
+              <p>It is forbidden to upload this beat online. The only exception is a short preview (15-30 seconds).</p>
+            </div>
+            <div id="tab-package" class="tab-pane">
+              <h3>Package Requirement</h3>
+              <h4>Master</h4>
+              <p>Mastered 44.1kHz 16-bit WAV and mastered 320kbps MP3.</p>
+              <h4>Unmastered version</h4>
+              <p>Unmastered 44.1kHz 16-bit WAV. If your beat has a vocal, include an unmastered instrumental WAV.</p>
+              <h4>Stems</h4>
+              <p>Unmastered multitrack 44.1kHz 16-bit WAV stems. Minimum 5 stems, correctly named.</p>
+              <h4>Instrumental</h4>
+              <p>Required only if the beat contains vocals.</p>
+            </div>
+            <div id="tab-samples" class="tab-pane">
+              <h3>Use of Samples</h3>
+              <p>We prohibit the unaltered use of readymade melodic loops, melodic samples, presets, and MIDI files.</p>
+              <p>If royalty-free samples are used, you must specify the source. If you select exclusive samples, it means you created/recorded the main sounds yourself.</p>
+            </div>
+            <div id="tab-sales" class="tab-pane">
+              <h3>Sales & 70/20/10 Split</h3>
+              <p>Our payout rate is 70% for the producer, 20% for PACO Connects, and 10% for COSOMA.</p>
+              <p>Withdrawal available to Mobile money and Bank accounts. Maximum payout period is 24 hours.</p>
+              <p>New beatmakers can set prices between MK50,000 and MK60,000. Maximum price increases with sales up to MK500,000.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACT PAGE -->
+      <div id="contactPage" class="page">
+        <h2 class="page-title">Contact us</h2>
+        <div class="contact-info">
+          <div class="contact-card">
+            <i class="fas fa-phone-alt"></i>
+            <h3>Phone</h3>
+            <p>+265 888 642 595</p>
+            <p>+265 996 017 545</p>
+          </div>
+          <div class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <h3>Email</h3>
+            <p>iloventhanda@gmail.com</p>
+          </div>
+          <div class="contact-card">
+            <i class="fas fa-globe"></i>
+            <h3>Social Media</h3>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#">@pacoconnectmw</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CUSTOM ORDER PAGE -->
+      <div id="customorderPage" class="page">
+        <h2 class="page-title">Custom Order</h2>
+        <div class="coming-soon">
+          <i class="fas fa-tools"></i>
+          <h3>Coming Soon</h3>
+          <p>Custom beat orders will be available shortly. Stay tuned!</p>
+        </div>
+      </div>
+
+      <!-- DASHBOARD PAGE - SELLER VIEW -->
+      <div id="dashboardPage" class="page">
+        <div class="dashboard-layout">
+          <!-- Left Sidebar Tabs -->
+          <div class="dashboard-sidebar">
+            <button class="dashboard-tab active" data-dash-tab="overview">
+              <i class="fas fa-chart-line"></i> DASHBOARD
+            </button>
+            <button class="dashboard-tab" data-dash-tab="mybeats">
+              <i class="fas fa-music"></i> MY BEATS <span id="myBeatsCount" class="tab-badge">0</span>
+            </button>
+            <button class="dashboard-tab" data-dash-tab="purchases">
+              <i class="fas fa-shopping-cart"></i> MY PURCHASES
+            </button>
+            <button class="dashboard-tab" data-dash-tab="wishlist">
+              <i class="fas fa-heart"></i> WISHLIST
+            </button>
+          </div>
+          
+          <!-- Right Content Area -->
+          <div class="dashboard-content">
+            <!-- OVERVIEW TAB (Seller Dashboard) -->
+            <div id="dash-overview" class="dash-tab-pane active">
+              <div class="dashboard-welcome">
+                <h2>Hello, <span id="dashUserName">Tiyamike</span>!</h2>
+                <div class="user-stats-badge">
+                  <span class="rank-badge">Your rank #<span id="userRank">59</span></span>
+                  <span class="id-badge">Your ID #<span id="userId">PACO-1756</span></span>
+                  <span class="status-badge active">Your account status is <strong>Active</strong></span>
+                </div>
+              </div>
+              
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <div class="stat-value" id="beatsSoldAlltime">26</div>
+                  <div class="stat-label">beats sold<br><small>All time</small></div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-value" id="beatsUploaded">26</div>
+                  <div class="stat-label">uploaded<br><small>All time</small></div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-value" id="beatsSoldYear">26</div>
+                  <div class="stat-label">beats sold<br><small>This year</small></div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-value" id="beatsSoldMonth">3</div>
+                  <div class="stat-label">beats sold<br><small>This month</small></div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-value" id="earnedAlltime">MK 267,460</div>
+                  <div class="stat-label">earned (70%)<br><small>All time</small></div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-value" id="earnedYear">MK 133,730</div>
+                  <div class="stat-label">earned (70%)<br><small>This year</small></div>
+                </div>
+              </div>
+              
+              <div class="quick-actions">
+                <button class="btn-primary" id="addBeatBtn">+ Add New Beat</button>
+                <button class="btn-outline">View Earnings</button>
+              </div>
+            </div>
+            
+            <!-- MY BEATS TAB (Seller) -->
+            <div id="dash-mybeats" class="dash-tab-pane">
+              <div class="beats-secondary-tabs">
+                <button class="beat-status-tab active" data-beat-status="all">ALL BEATS</button>
+                <button class="beat-status-tab" data-beat-status="published">PUBLISHED</button>
+                <button class="beat-status-tab" data-beat-status="sold">SOLD</button>
+                <button class="beat-status-tab" data-beat-status="pending">PENDING</button>
+                <button class="beat-status-tab" data-beat-status="onhold">ON HOLD</button>
+                <button class="beat-status-tab" data-beat-status="declined">DECLINED</button>
+                <button class="beat-status-tab" data-beat-status="banned">BANNED</button>
+                <button class="beat-status-tab" data-beat-status="draft">DRAFT</button>
+              </div>
+              <div class="beats-table-container">
+                <table class="beats-table">
+                  <thead>
+                    <tr>
+                      <th>COVER</th>
+                      <th>NAME</th>
+                      <th>GENRE</th>
+                      <th>MOOD</th>
+                      <th>SAMPLES</th>
+                      <th>PRICE</th>
+                      <th>DATE</th>
+                      <th>STATUS</th>
+                      <th>PAYOUT</th>
+                    </tr>
+                  </thead>
+                  <tbody id="myBeatsTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+            
+            <!-- PURCHASES TAB (Seller - their sold beats) -->
+            <div id="dash-purchases" class="dash-tab-pane">
+              <div class="beats-table-container">
+                <h3 style="margin-bottom: 1rem;">Your Sold Beats</h3>
+                <table class="beats-table">
+                  <thead>
+                    <tr>
+                      <th>COVER</th>
+                      <th>BEAT NAME</th>
+                      <th>BUYER</th>
+                      <th>PRICE</th>
+                      <th>DATE</th>
+                      <th>YOUR EARNINGS (70%)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td colspan="6" class="empty-state">No sales yet</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <!-- WISHLIST TAB (Seller - saved beats) -->
+            <div id="dash-wishlist" class="dash-tab-pane">
+              <div class="empty-state">Save favorite beats here</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BUYER DASHBOARD PAGE -->
+      <div id="buyerDashboardPage" class="page">
+        <div class="dashboard-layout">
+          <div class="dashboard-sidebar">
+            <button class="buyer-dash-tab active" data-buyer-tab="overview">
+              <i class="fas fa-chart-line"></i> DASHBOARD
+            </button>
+            <button class="buyer-dash-tab" data-buyer-tab="purchases">
+              <i class="fas fa-shopping-cart"></i> MY PURCHASES <span id="buyerPurchasesCount" class="tab-badge">0</span>
+            </button>
+            <button class="buyer-dash-tab" data-buyer-tab="wishlist">
+              <i class="fas fa-heart"></i> WISHLIST <span id="buyerWishlistCount" class="tab-badge">0</span>
+            </button>
+          </div>
+          
+          <div class="dashboard-content">
+            <!-- Buyer Overview -->
+            <div id="buyer-overview" class="buyer-tab-pane active">
+              <div class="dashboard-welcome">
+                <h2>Hello, <span id="buyerUserName">John</span>!</h2>
+                <div class="user-stats-badge">
+                  <span class="id-badge">COSOMA ID: <span id="buyerCosomaId">COSOMA-001</span></span>
+                  <span class="status-badge active">Account status: <strong>Active</strong></span>
+                </div>
+              </div>
+              
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <div class="stat-value" id="buyerTotalSpent">MK 0</div>
+                  <div class="stat-label">total spent<br><small>All time</small></div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-value" id="buyerPurchasesCount">0</div>
+                  <div class="stat-label">beats purchased<br><small>All time</small></div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Buyer Purchases -->
+            <div id="buyer-purchases" class="buyer-tab-pane">
+              <div class="beats-table-container">
+                <table class="beats-table">
+                  <thead>
+                    <tr>
+                      <th>BEAT NAME</th>
+                      <th>PRODUCER</th>
+                      <th>LICENSE</th>
+                      <th>PRICE</th>
+                      <th>STATUS</th>
+                      <th>DOWNLOAD</th>
+                    </tr>
+                  </thead>
+                  <tbody id="buyerPurchasesBody"></tbody>
+                </table>
+              </div>
+            </div>
+            
+            <!-- Buyer Wishlist -->
+            <div id="buyer-wishlist" class="buyer-tab-pane">
+              <div class="beat-grid" id="buyerWishlistGrid"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUPPORT PAGE -->
+      <div id="supportPage" class="page">
+        <h2 class="page-title">Support</h2>
+        <div class="support-container">
+          <div class="support-card">
+            <i class="fas fa-envelope"></i>
+            <h3>Email Support</h3>
+            <p>support@pacoconnects.mw</p>
+            <button class="btn-primary">Send Email</button>
+          </div>
+          <div class="support-card">
+            <i class="fab fa-whatsapp"></i>
+            <h3>WhatsApp</h3>
+            <p>+265 888 642 595</p>
+            <button class="btn-primary">Chat Now</button>
+          </div>
+          <div class="support-card">
+            <i class="fas fa-file-alt"></i>
+            <h3>COSOMA Help</h3>
+            <p>Royalty collection & copyright</p>
+            <button class="btn-primary">Learn More</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACCOUNT PAGE -->
+      <div id="accountPage" class="page">
+        <h2 class="page-title">Account Settings</h2>
+        <div class="account-form">
+          <div class="form-group">
+            <label for="accArtistName">Artist Name</label>
+            <input type="text" id="accArtistName">
+          </div>
+          <div class="form-group">
+            <label for="accEmail">Email</label>
+            <input type="email" id="accEmail">
+          </div>
+          <div class="form-group">
+            <label for="accCosoma">COSOMA ID</label>
+            <input type="text" id="accCosoma">
+          </div>
+          <div class="form-group">
+            <label for="accPhone">Phone</label>
+            <input type="tel" id="accPhone">
+          </div>
+          <button class="btn-primary" id="saveAccountBtn">Save Changes</button>
+        </div>
+      </div>
+
+      <!-- PRODUCER LIST MODAL (for Services Order Now) -->
+      <div id="producerModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Select a Producer</h3>
+            <button class="close-modal">&times;</button>
+          </div>
+          <div class="modal-body" id="producerList"></div>
+        </div>
+      </div>
+
+      <!-- AUTH MODAL (Login/Signup) -->
+      <div id="authModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>PACO Connects</h3>
+            <button class="close-modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="auth-tabs">
+              <button class="auth-tab active" data-auth="login">Login</button>
+              <button class="auth-tab" data-auth="sellerSignup">Become a Seller</button>
+              <button class="auth-tab" data-auth="buyerSignup">Become a Buyer</button>
+            </div>
+            
+            <div id="loginForm" class="auth-form active">
+              <div class="form-group">
+                <label for="loginUsername">Username or Email</label>
+                <input type="text" id="loginUsername">
+              </div>
+              <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword">
+              </div>
+              <button class="btn-primary" id="doLoginBtn">Login</button>
+              <p class="demo-note">Demo: producer / producer | buyer / buyer</p>
+            </div>
+            
+            <div id="sellerSignupForm" class="auth-form">
+              <div style="max-height:400px; overflow-y:auto;">
+                <div class="form-group"><label for="sellerArtistName">Artist name *</label><input type="text" id="sellerArtistName"></div>
+                <div class="form-group"><label for="sellerEmail">E-mail *</label><input type="email" id="sellerEmail"></div>
+                <div class="form-group"><label for="sellerFirstname">First name *</label><input type="text" id="sellerFirstname"></div>
+                <div class="form-group"><label for="sellerLastname">Last name *</label><input type="text" id="sellerLastname"></div>
+                <div class="form-group"><label for="sellerPhone">Phone number (with +) *</label><input type="tel" id="sellerPhone"></div>
+                <div class="form-group"><label for="sellerFacebook">Facebook *</label><input type="text" id="sellerFacebook"></div>
+                <div class="form-group"><label for="sellerGvtId">Government ID number *</label><input type="text" id="sellerGvtId"></div>
+                <div class="form-group"><label for="sellerPassword">Create password *</label><input type="password" id="sellerPassword"></div>
+              </div>
+              <button class="btn-primary" id="doSellerSignup">Register as Seller</button>
+            </div>
+            
+            <div id="buyerSignupForm" class="auth-form">
+              <div class="form-group"><label for="buyerFullname">Full Name *</label><input type="text" id="buyerFullname"></div>
+              <div class="form-group"><label for="buyerUsername">Username *</label><input type="text" id="buyerUsername"></div>
+              <div class="form-group"><label for="buyerCosoma">COSOMA ID</label><input type="text" id="buyerCosoma"></div>
+              <div class="form-group"><label for="buyerPhone">Phone Number *</label><input type="tel" id="buyerPhone"></div>
+              <div class="form-group"><label for="buyerEmail">Email Address *</label><input type="email" id="buyerEmail"></div>
+              <div class="form-group"><label for="buyerPassword">Create password *</label><input type="password" id="buyerPassword"></div>
+              <button class="btn-primary" id="doBuyerSignup">Register as Buyer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">PACO <span>Connects</span></div>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="footer-copyright">© 2026 PACO Connects — 70/20/10 revenue split | COSOMA-aligned royalties | Empowering Malawi's creative economy</div>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
